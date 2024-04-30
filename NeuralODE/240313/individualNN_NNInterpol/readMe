@@ -1,0 +1,131 @@
+# Duplicate og 240305
+The interpolation is using inidividual neural networks rather than a quadratic function. which can be found in the interpolation folder.
+
+# Individual Neural networks
+We use individual neural networks for mean, var, skw, kurt.
+Note: this is similar to the 
+
+## Calculation of loss
+The loss fucntion here is caclculated for mean seperately, for varimce seperately, for skewness seperately and for kurtosis seperately.
+We first calclate the dm/dt, dv/dt, ds/dt, dk/dt from the daa and generate the corresponding interpolation functions.
+Suppose I am training the nn for the mean:
+The inputs to the neural network would be, the mean, variance, skewness, kurtosis, time. The output is just the dm/dt.
+But note that all the other derivativs i.e., dv/dt, ds/dt, dk/dt are gotten from the data. and dt/dt is set to be one.
+
+        
+## Mean :
+
+#Parameters
+Have Been constant through out the training.
+0 - 2000 epochs:
+parser = argparse.ArgumentParser('ODE demo')
+parser.add_argument('--method', type=str, choices=['dopri5', 'adams'], default='dopri5')
+parser.add_argument('--data_size', type=int, default=1000)
+parser.add_argument('--batch_time', type=int, default=15)
+parser.add_argument('--batch_size', type=int, default=100)
+parser.add_argument('--niters', type=int, default=2000)
+parser.add_argument('--test_freq', type=int, default=20)
+parser.add_argument('--viz', action='store_true')
+parser.add_argument('--gpu', type=int, default=0)
+parser.add_argument('--adjoint', action='store_true')
+
+#Learning Rate
+first 860 = 0.005
+from 880-1020 = 0.0005
+1040-2000 = 0.0001
+
+## Variance:
+
+#Parameters
+0 -2000 epochs:
+parser = argparse.ArgumentParser('ODE demo')
+parser.add_argument('--method', type=str, choices=['dopri5', 'adams'], default='dopri5')
+parser.add_argument('--data_size', type=int, default=1000)
+parser.add_argument('--batch_time', type=int, default=15)
+parser.add_argument('--batch_size', type=int, default=75)
+parser.add_argument('--niters', type=int, default=2000)
+parser.add_argument('--test_freq', type=int, default=20)
+parser.add_argument('--viz', action='store_true')
+parser.add_argument('--gpu', type=int, default=0)
+parser.add_argument('--adjoint', action='store_true')
+
+#Learning Rate:
+0- 460 = 0.005
+480 - 2000 = 0.0005
+
+# Skewness:
+
+#Parameters
+0 -2000 epochs:
+parser = argparse.ArgumentParser('ODE demo')
+parser.add_argument('--method', type=str, choices=['dopri5', 'adams'], default='dopri5')
+parser.add_argument('--data_size', type=int, default=1000)
+parser.add_argument('--batch_time', type=int, default=15)
+parser.add_argument('--batch_size', type=int, default=25)
+parser.add_argument('--niters', type=int, default=2000)
+parser.add_argument('--test_freq', type=int, default=20)
+parser.add_argument('--viz', action='store_true')
+parser.add_argument('--gpu', type=int, default=0)
+parser.add_argument('--adjoint', action='store_true')
+
+2000-2820 epochs
+parser = argparse.ArgumentParser('ODE demo')
+parser.add_argument('--method', type=str, choices=['dopri5', 'adams'], default='dopri5')
+parser.add_argument('--data_size', type=int, default=1000)
+parser.add_argument('--batch_time', type=int, default=15)
+parser.add_argument('--batch_size', type=int, default=50)
+parser.add_argument('--niters', type=int, default=2000)
+parser.add_argument('--test_freq', type=int, default=20)
+parser.add_argument('--viz', action='store_true')
+parser.add_argument('--gpu', type=int, default=0)
+parser.add_argument('--adjoint', action='store_true')
+
+2000-2820 epochs
+parser = argparse.ArgumentParser('ODE demo')
+parser.add_argument('--method', type=str, choices=['dopri5', 'adams'], default='dopri5')
+parser.add_argument('--data_size', type=int, default=1000)
+parser.add_argument('--batch_time', type=int, default=15)
+parser.add_argument('--batch_size', type=int, default=100)
+parser.add_argument('--niters', type=int, default=2000)
+parser.add_argument('--test_freq', type=int, default=20)
+parser.add_argument('--viz', action='store_true')
+parser.add_argument('--gpu', type=int, default=0)
+parser.add_argument('--adjoint', action='store_true')
+
+#Learning Rate:
+0- 580 = 0.005
+600 - 2000 = 0.0005
+2020-2820 = 0.0001
+2820-3380 = 0.0001
+
+# Kurtosis:
+
+#Parameters
+0 -960 epochs:
+parser = argparse.ArgumentParser('ODE demo')
+parser.add_argument('--method', type=str, choices=['dopri5', 'adams'], default='dopri5')
+parser.add_argument('--data_size', type=int, default=1000)
+parser.add_argument('--batch_time', type=int, default=15)
+parser.add_argument('--batch_size', type=int, default=15)
+parser.add_argument('--niters', type=int, default=2000)
+parser.add_argument('--test_freq', type=int, default=20)
+parser.add_argument('--viz', action='store_true')
+parser.add_argument('--gpu', type=int, default=0)
+parser.add_argument('--adjoint', action='store_true')
+
+980-1980 epochs
+parser = argparse.ArgumentParser('ODE demo')
+parser.add_argument('--method', type=str, choices=['dopri5', 'adams'], default='dopri5')
+parser.add_argument('--data_size', type=int, default=1000)
+parser.add_argument('--batch_time', type=int, default=15)
+parser.add_argument('--batch_size', type=int, default=50)
+parser.add_argument('--niters', type=int, default=2000)
+parser.add_argument('--test_freq', type=int, default=20)
+parser.add_argument('--viz', action='store_true')
+parser.add_argument('--gpu', type=int, default=0)
+parser.add_argument('--adjoint', action='store_true')
+
+#Learning Rate:
+0- 960 = 0.005
+980-2000 = 0.001
+

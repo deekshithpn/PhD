@@ -1,0 +1,9 @@
+# Understanding the system
+With the NN developed in 230309 for the dyncamical system, we study how it would trace at different initial conditions.
+
+## Description:
+We have one NN for each of dm/dt, dv/dt, dk/dt, ds/dt.
+We also the experimental data from Prof. Curt. There are 43 experimental points in total. 
+Now we will see how the system looks (visual observation) when it has been initialised at different inital points.  
+
+note: the pth files are developed for system 2. (system 2 is the system corresponding to the NN system. (not the nn interpolation.)

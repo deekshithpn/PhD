@@ -1,0 +1,11 @@
+# Individual Neural networks
+Given the exerimental data, we interpolate the data using NN. 
+
+
+## Details
+We have an individual NN for interpolating each of mean, variance, skewness, kurtosis.
+The loss has been excellent. 0.0001
+        
+The number of epochs were based on the loss function >=0.0001.
+
+The learning rates have been pretty high. 0.01.

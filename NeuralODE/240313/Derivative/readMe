@@ -1,0 +1,4 @@
+# Derivative
+Given a Neural network for a single varible function, we can find the derivative of the NN function at a particular point. 
+We can specify the step size too.
+We are using central difference to find the derivative here.
