@@ -40,7 +40,7 @@ else:
 device = torch.device('cpu')
 
 # Loading the imporant variables file.
-file_name = "important_variables.pkl"
+file_name = "important_variables_700.pkl"
 with open(file_name,"rb") as input_file:
     imp_vars = pickle.load(input_file)
 
